@@ -18,7 +18,7 @@ const registration = async (
   }
 
   if (isMainThread) {
-    const worker = new Worker("./controllers/worker.js", {
+    const worker = new Worker("./src/controllers/worker.js", {
       workerData: {
         delay: +delay,
         path: "./worker.ts",
