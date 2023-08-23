@@ -28,6 +28,10 @@ app.use(
   registrationRoute
 );
 
+app.get("/", (req: Request, res: Response, next: NextFunction) => {
+  res.status(200).json({ message: "ok" });
+});
+
 app.use((req, res, next) => {
   const error = new HttpError("Could not find a route", 404);
   throw error;
