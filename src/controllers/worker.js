@@ -1,7 +1,7 @@
 const path = require("path");
 const { workerData } = require("worker_threads");
 require("ts-node").register();
-require(path.resolve(__dirname, workerData.path));
+require(path.join(__dirname, workerData.path));
 
 // const {
 //   Worker,
