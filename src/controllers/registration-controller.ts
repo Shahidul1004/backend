@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import HttpError from "../models/http-error";
 import { Worker, isMainThread, parentPort } from "worker_threads";
-
+import path from "path";
 const registration = async (
   req: Request,
   res: Response,
@@ -18,7 +18,7 @@ const registration = async (
   }
 
   if (isMainThread) {
-    const worker = new Worker("./src/controllers/worker.js", {
+    const worker = new Worker(path.join(__dirname, "worker.js"), {
       workerData: {
         delay: +delay,
         path: "./worker.ts",
